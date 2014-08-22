@@ -1,0 +1,21 @@
+{
+  "name": "ng-utility-belt",
+  "version": "0.1.0",
+  "description": "Collection of Angular directives, filters and services useful for projects of all sizes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jayhogan/ng-utility-belt.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "Jay Hogan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jayhogan/ng-utility-belt/issues"
+  }
+}
