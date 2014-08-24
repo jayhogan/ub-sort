@@ -29,4 +29,6 @@ function SortController($scope, $attrs, $parse, nubSortService) {
   };
 }
 
+SortController.$inject = ['$scope', '$attrs', '$parse', 'nubSortService'];
+
 module.exports = SortController;

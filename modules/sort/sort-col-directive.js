@@ -58,4 +58,6 @@ function sortCol($parse) {
   };
 }
 
+sortCol.$inject = ['$parse'];
+
 module.exports = sortCol;

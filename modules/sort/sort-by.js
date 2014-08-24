@@ -16,12 +16,14 @@
  */
 function sortByFilter($filter, nubSortService) {
   return function(array, key) {
-    var sortState = nubSortService.getState(key);
+    var sortState = nubSortService.state[key];
     if (sortState && sortState.predicate) {
       return $filter('orderBy')(array, sortState.predicate, sortState.reverse);
     }
     return array;
   };
 }
+
+sortByFilter.$inject = ['$filter', 'nubSortService'];
 
 module.exports = sortByFilter;

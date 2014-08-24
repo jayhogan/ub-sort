@@ -1,16 +1,12 @@
 'use strict';
 
-var angular = require('angular');
-var moduleName = 'ng-utility-belt.sort';
+function defineModule(angular) {
+  return angular.module('ng-utility-belt.sort', [])
+    .service(   'nubSortService',     require('./sort-service'))
+    .filter(    'nubSortBy',          require('./sort-by'))
+    .controller('NubSortController',  require('./sort-controller'))
+    .directive( 'nubSort',            require('./sort-directive'))
+    .directive( 'nubSortCol',         require('./sort-col-directive'));
+}
 
-var sortModule = angular.module(moduleName, [])
-  .service(   'nubSortService',     require('./sort-service'))
-  .filter(    'nubSortBy',          require('./sort-by'))
-  .controller('NubSortController',  require('./sort-controller'))
-  .directive( 'nubSort',            require('./sort-directive'))
-  .directive( 'nubSortCol',         require('./sort-col-directive'));
-
-module.exports = {
-  name: moduleName,
-  value: sortModule
-};
+module.exports = defineModule;
