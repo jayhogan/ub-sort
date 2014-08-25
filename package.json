@@ -19,9 +19,11 @@
     "url": "https://github.com/jayhogan/ng-utility-belt/issues"
   },
   "devDependencies": {
-    "gulp-uglifyjs": "~0.4.2",
-    "gulp-browserify": "~0.5.0",
+    "browserify": "^5.10.1",
     "gulp": "~3.8.7",
-    "gulp-rename": "~1.2.0"
+    "gulp-browserify": "~0.5.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "^0.3.1",
+    "vinyl-source-stream": "^0.1.1"
   }
 }
