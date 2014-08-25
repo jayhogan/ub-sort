@@ -13,9 +13,9 @@ function SortService() {
 }
 
 SortService.prototype.updateSortState = function(key, predicate, reverse) {
-  state[key] = state[key] || {};
-  state[key].predicate = predicate;
-  state[key].reverse = reverse === true;
+  this.state[key] = this.state[key] || {};
+  this.state[key].predicate = predicate;
+  this.state[key].reverse = reverse === true;
 };
 
 module.exports = SortService;
