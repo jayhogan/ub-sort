@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var SortService = require('../sort-service.js');
+var SortService = require('../lib/sort-service.js')();
 
 describe('sortService', function() {
   var service;

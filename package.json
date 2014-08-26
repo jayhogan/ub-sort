@@ -1,14 +1,14 @@
 {
-  "name": "ng-utility-belt",
+  "name": "ub-sort",
   "version": "0.1.0",
-  "description": "Collection of Angular directives, filters and services useful for projects of all sizes.",
-  "main": "index.js",
+  "description": "A sort tool for your Angular utility belt.",
+  "main": "lib/sort.js",
   "scripts": {
-    "test": "npm test"
+    "test": "node_modules/.bin/gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jayhogan/ng-utility-belt.git"
+    "url": "git://github.com/jayhogan/ub-sort.git"
   },
   "keywords": [
     "angular"
@@ -16,14 +16,14 @@
   "author": "Jay Hogan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jayhogan/ng-utility-belt/issues"
+    "url": "https://github.com/jayhogan/ub-sort/issues"
   },
   "devDependencies": {
     "browserify": "^5.10.1",
     "chai": "^1.9.1",
-    "gulp": "~3.8.7",
-    "gulp-browserify": "~0.5.0",
-    "gulp-rename": "~1.2.0",
+    "gulp": "^3.8.7",
+    "gulp-browserify": "^0.5.0",
+    "gulp-rename": "^1.2.0",
     "gulp-uglify": "^0.3.1",
     "karma": "^0.12.22",
     "karma-bro": "^0.6.2",
@@ -31,6 +31,6 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.4",
     "vinyl-source-stream": "^0.1.1",
-    "sinon": "~1.10.3"
+    "sinon": "^1.10.3"
   }
 }

@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var sortByFilter = require('../sort-by');
+var sortByFilter = require('../lib/sort-by')();
 
 describe('sortBy', function() {
   var sortService;
@@ -14,9 +14,9 @@ describe('sortBy', function() {
     sortBy = sortByFilter($filter, sortService);
   }));
 
-  it('expects "$filter" and "nubSortService" to be injected', function() {
+  it('expects "$filter" and "ubSortService" to be injected', function() {
     expect(sortByFilter).to.have.property('$inject');
-    expect(sortByFilter.$inject).to.eql(['$filter', 'nubSortService']);
+    expect(sortByFilter.$inject).to.eql(['$filter', 'ubSortService']);
   });
 
   it('will return unsorted array if sort not specified', function() {

@@ -8,14 +8,14 @@ module.exports = function(config) {
     files: [
       'test/angular/1.2.22/angular.js',
       'test/angular/1.2.22/angular-mocks.js',
-      'modules/**/test/*.js'
+      'test/*.spec.js'
     ],
 
     exclude: [
     ],
 
     preprocessors: {
-        'modules/**/test/*.js': [ 'browserify' ]
+        'test/*.spec.js': [ 'browserify' ]
     },
 
     // possible values: 'dots', 'progress'

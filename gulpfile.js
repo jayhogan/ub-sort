@@ -11,19 +11,19 @@ gulp.task('build', ['browserify', 'uglify']);
 gulp.task('browserify', function() {
   // TODO - Add file header
   return browserify({
-      entries: './modules/index.js',
-      standalone: 'ng-utility-belt',
+      entries: './browser.js',
+      standalone: 'ub-sort',
       debug: true
     }).bundle()
-    .pipe(source('ng-utility-belt.js'))
+    .pipe(source('ub-sort.js'))
     .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('uglify', ['browserify'], function() {
   // TODO - Preserve file header comment (when added)
-  return gulp.src('dist/ng-utility-belt.js')
+  return gulp.src('dist/ub-sort.js')
     .pipe(uglify())
-    .pipe(rename('ng-utility-belt.min.js'))
+    .pipe(rename('ub-sort.min.js'))
     .pipe(gulp.dest('./dist'));
 });
 

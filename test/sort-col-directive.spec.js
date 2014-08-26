@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var sortModule = require('../sort')(angular);
+var sortModule = require('../lib/sort')(angular);
 var sinon = require('sinon');
 var ngModule = angular.mock.module;
 
@@ -7,28 +7,28 @@ describe('sort-col', function() {
   var scope;
   var compileElement;
   var people = [];
-  var html = "<table nub-sort='foo'>"
+  var html = "<table ub-sort='foo'>"
            + "  <thead><tr>"
-           + "    <th nub-sort-col='first'>First</th>"
-           + "    <th nub-sort-col='last'>Last</th>"
+           + "    <th ub-sort-col='first'>First</th>"
+           + "    <th ub-sort-col='last'>Last</th>"
            + "  </tr></thead>"
-           + "  <tbody><tr ng-repeat=\"person in people | nubSortBy:'foo'\">"
+           + "  <tbody><tr ng-repeat=\"person in people | ubSortBy:'foo'\">"
            + "    <td>{{ person.first }}</td>"
            + "    <td>{{ person.last }}</td>"
            + "  </tr></tbody>"
            + "</table>";
-  var altHtml = "<table nub-sort='foo'>"
+  var altHtml = "<table ub-sort='foo'>"
            + "  <thead><tr>"
-           + "    <th nub-sort-col='first' sort-initial='asc'>First</th>"
-           + "    <th nub-sort-col='lastByLength'>Last</th>"
+           + "    <th ub-sort-col='first' sort-initial='asc'>First</th>"
+           + "    <th ub-sort-col='lastByLength'>Last</th>"
            + "  </tr></thead>"
-           + "  <tbody><tr ng-repeat=\"person in people | nubSortBy:'foo'\">"
+           + "  <tbody><tr ng-repeat=\"person in people | ubSortBy:'foo'\">"
            + "    <td>{{ person.first }}</td>"
            + "    <td>{{ person.last }}</td>"
            + "  </tr></tbody>"
            + "</table>";
 
-  beforeEach(ngModule('ng-utility-belt.sort'));
+  beforeEach(ngModule('ub-sort'));
 
   beforeEach(inject(function($rootScope, $compile) {
     scope = $rootScope.$new();

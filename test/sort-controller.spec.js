@@ -1,6 +1,6 @@
 var expect = require('chai').expect;
-var SortController = require('../sort-controller.js');
-var SortService = require('../sort-service.js');
+var SortController = require('../lib/sort-controller.js')();
+var SortService = require('../lib/sort-service.js')();
 var sinon = require('sinon');
 
 describe('SortController', function() {
@@ -13,7 +13,7 @@ describe('SortController', function() {
 
   beforeEach(inject(function($rootScope, _$parse_) {
     $scope = $rootScope.$new();
-    $attrs = { nubSort: sortKey };
+    $attrs = { ubSort: sortKey };
     $parse = _$parse_;
     service = new SortService();
     controller = function() {
@@ -21,9 +21,9 @@ describe('SortController', function() {
     };
   }));
 
-  it('expects $scope, $attrs, $parse and nubSortSevice to be injected', function() {
+  it('expects $scope, $attrs, $parse and ubSortSevice to be injected', function() {
     expect(SortController).to.have.property('$inject');
-    expect(SortController.$inject).to.eql(['$scope', '$attrs', '$parse', 'nubSortService']);
+    expect(SortController.$inject).to.eql(['$scope', '$attrs', '$parse', 'ubSortService']);
   });
 
   it('has an instance property called states', function() {
@@ -51,9 +51,9 @@ describe('SortController', function() {
       expect(onSort.calledWith(sortKey, 'bar', false));
     });
 
-    it('broadcasts an "nub:sort" event when called', function() {
+    it('broadcasts an "ub:sort" event when called', function() {
       var handler = sinon.spy();
-      $scope.$new().$on('nub:sort', handler);
+      $scope.$new().$on('ub:sort', handler);
 
       controller().sortBy('bar', false);
 

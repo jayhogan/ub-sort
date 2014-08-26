@@ -1,6 +1,6 @@
 var angular = window.angular;
 var subModules = [
-  require('./sort/sort')(angular).name
+  require('./lib/sort')(angular).name
 ];
 
 module.exports = angular.module('ng-utility-belt', subModules);

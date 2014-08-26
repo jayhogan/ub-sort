@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var sortModule = require('../sort')(angular);
+var sortModule = require('../lib/sort')(angular);
 var sinon = require('sinon');
 var ngModule = angular.mock.module;
 
@@ -7,7 +7,7 @@ describe('sort', function() {
   var scope;
   var compileElement;
 
-  beforeEach(ngModule('ng-utility-belt.sort'));
+  beforeEach(ngModule('ub-sort'));
 
   beforeEach(inject(function($rootScope, $compile) {
     scope = $rootScope.$new();
@@ -17,7 +17,7 @@ describe('sort', function() {
   }));
 
   it('adds "sortable" class to the element', function() {
-    var ele = compileElement("<div nub-sort='foo'></div>");
+    var ele = compileElement("<div ub-sort='foo'></div>");
     expect(ele.hasClass('sortable')).to.be.true;
   });
 
