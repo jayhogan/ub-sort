@@ -3,6 +3,7 @@ var browserify = require('browserify');
 var uglify = require('gulp-uglify');
 var source = require('vinyl-source-stream');
 var rename = require('gulp-rename');
+var karma = require('karma').server;
 
 gulp.task('default', ['build']);
 gulp.task('build', ['browserify', 'uglify']);
@@ -26,6 +27,9 @@ gulp.task('uglify', ['browserify'], function() {
     .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('test', function() {
-  // TODO - Test with mocha
+gulp.task('test', function(done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
 });

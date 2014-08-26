@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var SortController = require('../sort-controller.js');
 var SortService = require('../sort-service.js');
+var sinon = require('sinon');
 
 describe('SortController', function() {
   var $scope;
@@ -12,12 +13,12 @@ describe('SortController', function() {
 
   beforeEach(inject(function($rootScope, _$parse_) {
     $scope = $rootScope.$new();
-    $attrs = { sort: sortKey };
+    $attrs = { nubSort: sortKey };
     $parse = _$parse_;
     service = new SortService();
     controller = function() {
       return new SortController($scope, $attrs, $parse, service);
-    }
+    };
   }));
 
   it('expects $scope, $attrs, $parse and nubSortSevice to be injected', function() {
@@ -40,30 +41,24 @@ describe('SortController', function() {
     });
 
     it('calls onSortBy callback on scope when provided', function() {
-      var called = false;
-
+      var onSort = sinon.spy();
       $attrs.onSortBy = 'onSort';
-
-      $scope.onSort = function(key, predicate, reverse) {
-        expect(key).to.equal(sortKey);
-        expect(predicate).to.equal('bar');
-        expect(reverse).to.be.false;
-        called = true;
-      };
+      $scope.onSort = onSort;
 
       controller().sortBy('bar', false);
-      expect(called).to.be.true;
+
+      expect(onSort.called).to.be.true;
+      expect(onSort.calledWith(sortKey, 'bar', false));
     });
 
     it('broadcasts an "nub:sort" event when called', function() {
-      var childScope = $scope.$new();
-      var called = false;
-      childScope.$on('nub:sort', function(evt, data) {
-        expect(data.predicate).to.equal('bar');
-        called = true;
-      });
+      var handler = sinon.spy();
+      $scope.$new().$on('nub:sort', handler);
+
       controller().sortBy('bar', false);
-      expect(called).to.be.true;
+
+      expect(handler.called).to.be.true;
+      expect(handler.firstCall.args[1]).to.eql({ predicate: 'bar' });
     });
   });
 });

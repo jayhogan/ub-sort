@@ -17,7 +17,7 @@ function sortCol($parse) {
     link: function(scope, element, attr, ctrl) {
       var states = ctrl.states;
       var state = states.none;
-      var predicate = attr.sortCol;
+      var predicate = attr.nubSortCol;
       var parsedPredicate = $parse(predicate);
 
       if (angular.isFunction(parsedPredicate(scope))) {

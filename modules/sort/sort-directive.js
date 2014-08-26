@@ -13,7 +13,7 @@
 function sort() {
   return {
     restrict: 'A',
-    controller: 'SortTableController',
+    controller: 'NubSortController',
     link: function (scope, element, attr, ctrl) {
       element.addClass('sortable');
     }

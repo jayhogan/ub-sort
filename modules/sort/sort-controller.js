@@ -8,7 +8,7 @@
  * Controller used by the sortTable directive
  */
 function SortController($scope, $attrs, $parse, nubSortService) {
-  var key = $attrs.sort;
+  var key = $attrs.nubSort;
   var onSortBy = function() {};
 
   if ($attrs.onSortBy) {
